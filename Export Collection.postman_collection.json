@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "7cb8ce09-f0f9-49bd-8da4-7e803f6e549c",
+		"name": "Export Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Configuration Service - Get a Specific Configuration Copy",
+			"item": [
+				{
+					"name": "Get added config",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e3db174d-cc48-4654-ae9a-f577fb371b79",
+								"exec": [
+									"pm.test(\"response is valid\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.test(\"response must have request_status as success\",function () {",
+									"    jsonData.request_status === \"success\";",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://poc-{{environmentName}}-services.westeurope.cloudapp.azure.com/configurationservice/api/v1/configurations/405/1?AccessToken=NotImplemented&Version=0",
+							"protocol": "https",
+							"host": [
+								"poc-{{environmentName}}-services",
+								"westeurope",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"configurationservice",
+								"api",
+								"v1",
+								"configurations",
+								"405",
+								"1"
+							],
+							"query": [
+								{
+									"key": "AccessToken",
+									"value": "NotImplemented",
+									"description": " Not implemented because of Security Service"
+								},
+								{
+									"key": "Version",
+									"value": "0"
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "A GET request to retrieve the newly created configuration"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
