@@ -17,7 +17,7 @@
 								"id": "e3db174d-cc48-4654-ae9a-f577fb371b79",
 								"exec": [
 									"pm.test(\"response is valid\", function () {",
-									"    pm.response.to.have.status(200);",
+									"    pm.response.to.have.status(404);",
 									"});",
 									"",
 									"var jsonData = JSON.parse(responseBody);",
